@@ -9,16 +9,15 @@
     
     <body>
         <img src="./img/logo.png" alt="logo"/>
-        <textarea id="texto" placeholder="Escribe el texto aquí"></textarea><br>
-        <select id="tipo">
-          <option value="encriptar">Encriptar</option>
-          <option value="desencriptar">Desencriptar</option>
-        </select><br>
-        <button onclick="transformar()">Transformar</button><br>
+        <h1>Encriptador de Texto</h1>
+        <label for="texto">Texto:</label><br>
+        <textarea id="texto" placeholder="Ingrese el texto aquí"></textarea><br>
+        <button onclick="encriptar()">Encriptar</button>
+        <button onclick="desencriptar()">Desencriptar</button><br>
         <label for="resultado">Resultado:</label><br>
         <textarea id="resultado" readonly></textarea><br>
         <button onclick="copiar()">Copiar Resultado</button>
-      
+
     
     
     
