@@ -1,3 +1,4 @@
+
 function encriptar() {
   var mensaje = document.getElementById('mensaje').value.toLowerCase();
   var resultado = encriptarTexto(mensaje);
