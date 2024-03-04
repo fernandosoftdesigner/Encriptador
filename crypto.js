@@ -1,34 +1,42 @@
 function encriptar() {
-  var texto = document.getElementById('texto').value.toLowerCase();
-  var resultado = encriptarTexto(texto);
+  var mensaje = document.getElementById('mensaje').value.toLowerCase();
+  var resultado = encriptarTexto(mensaje);
   document.getElementById('resultado').value = resultado;
+  // Mostrar el área de texto encriptado y ocultar la imagen
+  document.getElementById('info').classList.add('hidden');
+  document.getElementById('resultado').classList.remove('hidden');
+  document.getElementById('copy').classList.remove('hidden');
 }
 
+
 function desencriptar() {
-  var texto = document.getElementById('texto').value.toLowerCase();
-  var resultado = desencriptarTexto(texto);
+  var mensaje = document.getElementById('mensaje').value.toLowerCase();
+  var resultado = desencriptarTexto(mensaje);
   document.getElementById('resultado').value = resultado;
 }
 
 function encriptarTexto(texto) {
   return texto.replace(/e/g, 'enter')
-             .replace(/i/g, 'imes')
-             .replace(/a/g, 'ai')
-             .replace(/o/g, 'ober')
-             .replace(/u/g, 'ufat');
+    .replace(/i/g, 'imes')
+    .replace(/a/g, 'ai')
+    .replace(/o/g, 'ober')
+    .replace(/u/g, 'ufat');
 }
 
 function desencriptarTexto(texto) {
   return texto.replace(/enter/g, 'e')
-             .replace(/imes/g, 'i')
-             .replace(/ai/g, 'a')
-             .replace(/ober/g, 'o')
-             .replace(/ufat/g, 'u');
+    .replace(/imes/g, 'i')
+    .replace(/ai/g, 'a')
+    .replace(/ober/g, 'o')
+    .replace(/ufat/g, 'u');
 }
-
-function copiar() {
-  var resultado = document.getElementById('resultado');
-  resultado.select();
-  document.execCommand('copy');
-  alert('Texto copiado al portapapeles');
+function copiarMensaje() {
+  var resultado = document.getElementById('resultado').value;
+  navigator.clipboard.writeText(resultado)
+    .then(() => {
+      alert('Mensaje copiado al portapapeles');
+    })
+    .catch(err => {
+      console.error('No se pudo copiar el mensaje: ', err);
+    });
 }
